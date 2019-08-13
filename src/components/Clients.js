@@ -16,7 +16,7 @@ function Clients(props) {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Country</th>
-                        <th>firstContact</th>
+                        <th>First Contact</th>
                         <th>Email Type</th>
                         <th>Sold</th>
                         <th>Owner</th>

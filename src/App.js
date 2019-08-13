@@ -5,14 +5,41 @@ import Analytics from './components/Analytics'
 import Actions from './components/Actions'
 import Clients from './components/Clients'
 import myData from './data.json';
+const axios = require('axios');
 
 function App() {
 
-  const [clients, setClients] = useState(myData)
+  const [clients, setClients] = useState([])
 
-  function func1() {
-    console.log("Hi")
-    console.log(myData)
+  useEffect(() => {
+    getClients()
+  },[]);
+  
+  function getClients() {
+    console.log("client getClients")
+
+    axios.get('http://localhost:4000/clients')
+      .then((response) => {
+        setClients(response.data)
+      })
+      .catch(function (error) {
+        console.log("ERROR: ")
+        console.log(error);
+      });
+  }
+
+
+  function addClient(client) {
+    console.log("addClient")
+    console.log(client)
+    axios.post('http://localhost:4000/client', client)
+      .then((response) => {
+        // getClients()
+      })
+      .catch(function (error) {
+        console.log("ERROR: ")
+        console.log(error);
+      });
   }
 
   return (
@@ -23,11 +50,9 @@ function App() {
           <Link to="/actions">Actions</Link>
           <Link to="/analytics">Analytics</Link>
         </div>
-        <button onClick={func1}>click me</button>
-        
         <Route exact path="/" render={() => (<Redirect to="/clients" />)} />
         <Route path="/clients" exact render={() => <Clients clients={clients} />} />
-        <Route path="/actions" exact render={() => <Actions />} />
+        <Route path="/actions" exact render={() => <Actions addClient={addClient}/>} />
         <Route path="/analytics" exact render={() => <Analytics />} />
 
       </div>

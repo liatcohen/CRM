@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react'
 
 function AddClient(props) {
 
-    const [firstName, setFirstName] = useState('')
-    const [surname, setSurname] = useState('')
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
     const [country, setCountry] = useState('')
     const [owner, setOwner] = useState('')
 
     function handleChange(e){
         switch (e.target.id) {
-            case 'firstName':
-                setFirstName(e.target.value)
+            case 'name':
+                    setName(e.target.value)
                 break;
-            case 'surname':
-                setSurname(e.target.value)
+            case 'email':
+                    setEmail(e.target.value)
                 break;
             case 'country':
                 setCountry(e.target.value)
@@ -24,24 +24,23 @@ function AddClient(props) {
         }
     }
 
-    function addNewClient(){
-        props.addNewClient({
-            firstName,
-            surname,
+    function addClient(){
+        props.addClient({
+            name,
+            email,
             country,
             owner
         })
-        // console.log(firstName+"-> "+country+" "+surname+"  "+owner)
     }
     return (
         <div className="add-client">
         <div>AddClient</div>
         <form className="add-client-form">
-            <label>First Name:
-            <input id="firstName" type="text" name="name" value={firstName} onChange={handleChange} />
+            <label>Name:
+            <input id="name" type="text" name="name" value={name} onChange={handleChange} />
             </label>
-            <label>Surname:
-            <input id="surname" type="text" name="name" value={surname} onChange={handleChange} />
+            <label>Email:
+            <input id="email" type="email" name="name" value={email} onChange={handleChange} />
             </label>
             <label>Country:
             <input id="country" type="text" name="name" value={country} onChange={handleChange} />
@@ -50,7 +49,7 @@ function AddClient(props) {
             <input id="owner" type="text" name="name" value={owner} onChange={handleChange} />
             </label>
         </form>
-        <button onClick={addNewClient}>Add New Client</button>
+        <button onClick={addClient}>Add New Client</button>
         </div>
     )
 }
