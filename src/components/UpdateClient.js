@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import ClientInput from './ClientInput'
 
 function UpdateClient() {
     return (
-        <div>AddClient</div>
+        <div>UpdateClient
+        <ClientInput/>
+        </div>
         
     );
 }

@@ -35,7 +35,7 @@ function AddClient(props) {
     }
     return (
         <div className="add-client">
-            <div>AddClient</div>
+        <div>AddClient</div>
         <form className="add-client-form">
             <label>First Name:
             <input id="firstName" type="text" name="name" value={firstName} onChange={handleChange} />

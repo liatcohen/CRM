@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import AddClient from './AddClient'
-
+import UpdateClient from './UpdateClient'
 
 function Actions() {
 
@@ -9,6 +9,7 @@ function Actions() {
     }
     return (
         <div>Actions
+        <UpdateClient/>
         <AddClient addNewClient={addNewClient}/>
 
 

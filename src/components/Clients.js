@@ -15,10 +15,11 @@ function Clients(props) {
                     <tr>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Country</th>
+                        <th>firstContact</th>
                         <th>Email Type</th>
                         <th>Sold</th>
                         <th>Owner</th>
-                        <th>Country</th>
                     </tr>
                 </thead>
                 <tbody>
