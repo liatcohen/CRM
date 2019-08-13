@@ -37,6 +37,20 @@ tr:hover {background-color:#f5f5f5;}
   /* margin: 10px; */
   
 }
+
+.add-client{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: flexs-start; */
+  width: 500px;
+}
+.add-client-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+}
 /* Use #ecf0f1 for your app's background-color
 Use #0a1612 for the nav-bar's background color
 Use #F7CE3E for the table's header background-color

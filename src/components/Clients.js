@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import Client from './Client'
 
 function Clients(props) {
+
+    function editClient(client) {
+        console.log(`${client.name} was clicked`)
+    }
+
     return (
         <div>
             <div>Clients</div>
@@ -13,23 +19,11 @@ function Clients(props) {
                         <th>Sold</th>
                         <th>Owner</th>
                         <th>Country</th>
-
                     </tr>
                 </thead>
                 <tbody>
-                    {props.clients.map(u =>
-                        <tr>
-                            <td>{u.name}</td>
-                            <td>{u.email}</td>
-                            <td>{u.emailType}</td>
-                            <td>{u.sold}</td>
-                            <td>{u.owner}</td>
-                            <td>{u.country}</td>
-                        </tr>
-                    )}
+                    {props.clients.map((c, key) => <Client client={c} key={key} editClient={editClient}/>)}
                 </tbody>
-
-
             </table>
         </div>
     );
