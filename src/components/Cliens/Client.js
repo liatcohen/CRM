@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react'
+import './Clients.css'
+
 const moment = require('moment');
 
 function Client(props) {
 
     function editClient() {
         props.editClient(props.client)
+        console.log("Client: "+props.client.name)
+        console.log(props.client.sold)
     }
 
     return (
@@ -14,7 +18,7 @@ function Client(props) {
             <td>{props.client.country}</td>
             <td>{moment(props.client.firstContact).format('DD/MM/YYYY')}</td>
             <td>{props.client.emailType}</td>
-            <td>{props.client.sold}</td>
+            <td>{props.client.sold? <i className="fas fa-check"></i>: null}</td>
             <td>{props.client.owner}</td>
         </tr>
     );

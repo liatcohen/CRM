@@ -3,10 +3,13 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 function Navbar() {
   return (
-    <div className="navbar">
-     
-
-    </div>
+    <Router>
+        <div className="navbar">
+          <Link to="/clients">Clients</Link>
+          <Link to="/actions">Actions</Link>
+          <Link to="/analytics">Analytics</Link>
+        </div>
+    </Router>
   );
 }
 

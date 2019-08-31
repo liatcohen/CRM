@@ -64,6 +64,13 @@ thead{
   /* margin: 10px; */
 }
 
+.actions-header{
+font-size: 20px;
+font-weight: bold;
+margin: 10px;
+}
+
+
 .add-client{
   display: flex;
   flex-direction: column;
@@ -72,11 +79,14 @@ thead{
   width: 500px;
 }
 .add-client-form{
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: flex-start;
+  align-items: flex-start; */
+  /* background-color: #4CAF50; */
 }
+
+
 /* Use #ecf0f1 for your app's background-color
 Use #0a1612 for the nav-bar's background color
 Use #F7CE3E for the table's header background-color
@@ -86,3 +96,97 @@ Top Salespeople: #003f5c
 Sales By X: #955196
 Sales over time: #ff6e54
 Client Distribution: #795548, #34495e, #95a5a6 */
+.styled-input h2 		 { 
+  text-align:center; 
+  margin-bottom:50px; 
+}
+.styled-input h2 small { 
+  font-weight:normal; 
+  color:#888; 
+  display:block; 
+}
+.styled-input .footer 	{ text-align:center; }
+.styled-input .footer a  { color:#53B2C8; }
+
+/* form starting stylings ------------------------------- */
+.styled-input 			  { 
+  position:relative; 
+  margin-bottom:45px; 
+  box-sizing:border-box;
+}
+.styled-input  input {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+  background-color: transparent;
+}
+.styled-input  input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+.styled-input  label 				 {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.styled-input  input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#3498db;
+}
+
+/* BOTTOM BARS ================================= */
+.styled-input  .bar 	{ position:relative; display:block; width:300px; }
+.styled-input .bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#3498db; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.styled-input .bar:before {
+  left:50%;
+}
+.styled-input .bar:after {
+  right:50%; 
+}
+
+/* active state */
+.styled-input input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.styled-input .highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+.styled-input input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+* { box-sizing:border-box; }
