@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AddClient from './AddClient'
 import UpdateClient from './UpdateClient'
 import { PromiseProvider } from 'mongoose';
+import './Actions.css'
 const moment = require('moment');
 const axios = require('axios');
 
@@ -49,10 +50,12 @@ function Actions(props) {
         props.addClient(client)
     }
     return (
-        <div >
-<div className="liat">LIAT</div>
-        <UpdateClient clients={clientsNames} owners={owners}/>
+        <div className="actions">
             <AddClient addClient={addClient} />
+            <hr/>
+
+            <UpdateClient clients={clientsNames} owners={owners} />
+
         </div>
     );
 }

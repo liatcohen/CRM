@@ -15,8 +15,10 @@ function ClientInput(props) {
         props.submitSelectedClient(selectedClient)
     }
     return (
-        <div>
-           
+        <div className="form-style-5">
+           <label for="job"> Client:</label>
+            <input type="text" name="name" placeholder="Name" />
+
             <input list="clients" name="client" placeholder="Select Client" 
             value={selectedClient}
             onInput={clientSelected} 

@@ -34,35 +34,18 @@ function AddClient(props) {
     }
     return (
         <div className="add-clientr">
-            <div className="actions-header">Add Client</div>
-            <form className="add-client-form">
-                <div class="styled-input">
-                    <input id="name" type="text" value={name} onChange={handleChange}  required />
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Name</label>
-                </div>
-                <div class="styled-input">
-                    <input id="email" type="text" value={email} onChange={handleChange}  required />
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Email</label>
-                </div>
-                <div class="styled-input">
-                    <input id="country" type="text" value={country} onChange={handleChange}  required />
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Country</label>
-                </div>
-                <div class="styled-input">
-                    <input id="owner" type="text" value={owner} onChange={handleChange}  required />
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
-                    <label>Owner</label>
-                </div>
-
-            </form>
-            <button onClick={addClient}>Add New Client</button>
+            <div class="form-style-5">
+                <form>
+                    <fieldset>
+                        <legend><span class="number"></span>Add Client</legend>
+                        <input type="text" id="name" placeholder="Name" value={name} onChange={handleChange} required/>
+                        <input type="email" id="email" placeholder="Email" value={email} onChange={handleChange} required />
+                        <input type="text" id="country" placeholder="Country" value={country} onChange={handleChange} required/>
+                        <input type="text" id="owner" placeholder="Owner" value={owner} onChange={handleChange} required/>
+                    </fieldset>
+                    <input type="submit" value="Add New Client" onClick={addClient}/>
+                </form>
+            </div>
         </div>
     )
 }
