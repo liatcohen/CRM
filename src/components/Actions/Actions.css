@@ -5,7 +5,7 @@
 /* align-content: flex-start */
 }
 .form-style-5{
-    max-width: 50%;
+    max-width: 60%;
 	padding: 10px 20px;
 	/* margin: 10px austo; */
 	padding: 20px;
@@ -53,6 +53,10 @@
 	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
 	margin-bottom: 10px;
 }
+
+/* .form-style-5 select #ownership{
+  width: 20px;
+} */
 .form-style-5 input[type="text"]:focus,
 .form-style-5 input[type="date"]:focus,
 .form-style-5 input[type="datetime"]:focus,
@@ -108,3 +112,38 @@
 {
 	background: #109177;
 }
+.update-sub-div{
+  display: flex;
+}
+
+
+.form-style-5 .update-sub-div label{
+/* background-color : red; */
+flex:1
+}
+
+.form-style-5 .update-sub-div select{
+  /* background-color: yellow; */
+  flex:2
+  }
+
+  .form-style-5 .update-sub-div input{
+    /* background-color: beige; */
+    width: 100px;
+    margin-left: 15px;
+    /* flex: 1; */
+    }
+
+    .choose-client{
+      background-color: #d5dce0;
+      margin-bottom: 5px;
+      padding: 10px;
+      border-radius: 4px;
+
+    }
+
+    .choose-client label{
+      margin-top:7px;
+      font-size: 1.1em;
+font-weight: 600;
+    }

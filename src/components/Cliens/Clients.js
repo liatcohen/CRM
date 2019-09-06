@@ -32,7 +32,6 @@ function Clients(props) {
 
     return (
         <div>
-            <div id="clients2">Clients</div>
             <table className="clients-table">
                 <thead>
                     <tr>

@@ -22,27 +22,34 @@ function UpdateClient(props) {
                 <form>
                     <fieldset>
                         <legend><span class="number"></span>Update Client</legend>
-                        <label for="job">Client:</label>
-                        <select value={client} onChange={(e) => (setClient(e.target.value))}>
-                            {props.clients.map(c =>
-                                <option value={c.name}>{c.name}</option>)}
-                        </select>
-                        <label for="job">Transfer ownership to:</label>
-                        <select value={owner} onChange={(e) => (setOwner(e.target.value))}>
-                            {props.owners.map(ow =>
-                                <option value={ow.owner}>{ow.owner}</option>
-                            )}
-                        </select>
-                        <label for="job">Send Email:</label>
-                        <select value="emails" onChange={(e) => (setEmailType(e.target.value))}>
-                            {emails.map(e =>
-                                <option value={e}>{e}</option>)}
-                        </select>
-                        <button>send</button>
-                        <label for="job">Declare Sale</label>
-
+                        <div className="update-sub-div choose-client">
+                            <label for="client">Client:</label>
+                            <select value={client} onChange={(e) => (setClient(e.target.value))}>
+                                {props.clients.map(c =>
+                                    <option value={c.name}>{c.name}</option>)}
+                            </select>
+                        </div>
+                        <div className="update-sub-div">
+                            <label for="ownership">Transfer ownership to:</label>
+                            <select id="ownership" value={owner} onChange={(e) => (setOwner(e.target.value))}>
+                                {props.owners.map(ow =>
+                                    <option value={ow.owner}>{ow.owner}</option>)}
+                            </select>
+                            <input type="submit" value="Transfer" />
+                        </div>
+                        <div className="update-sub-div">
+                            <label for="email-type">Send Email:</label>
+                            <select value="emails" onChange={(e) => (setEmailType(e.target.value))}>
+                                {emails.map(e =>
+                                    <option value={e}>{e}</option>)}
+                            </select>
+                            <input type="submit" value="Send" />
+                        </div>
+                        <div className="update-sub-div">
+                            <label for="job">Declare Sale</label>
+                            <input type="submit" value="Declare!" />
+                        </div>
                     </fieldset>
-                    <input type="submit" value="Apply" />
                 </form>
             </div>
 

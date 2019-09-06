@@ -53,7 +53,6 @@ function Actions(props) {
         <div className="actions">
             <AddClient addClient={addClient} />
             <hr/>
-
             <UpdateClient clients={clientsNames} owners={owners} />
 
         </div>
