@@ -4,8 +4,6 @@ import './Clients.css'
 import axios from 'axios';
 const URL = "http://localhost:4000"
 
-// const axios = require('axios');
-
 function Clients(props) {
     const [clients, setClients] = useState([])
 

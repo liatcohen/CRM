@@ -1,0 +1,65 @@
+.badge-container{
+    display: flex;
+    align-items: center;
+}
+.badge {
+	background: #1abc9c;
+	color: #fff;
+	height: 90px;
+	width: 90px;
+	display: inline-block;
+	font-size: 0.8em;
+	margin-right: 4px;
+	line-height: 30px;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+    border-radius: 45px 45px 45px 0px;
+    margin-left: 10px;  
+}
+
+.badge-info{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+#badge-number{
+font-size: 40px
+}
+.badge2 {
+	background: #1abc9c;
+	color: #fff;
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	font-size: 0.8em;
+	margin-right: 4px;
+	line-height: 30px;
+	text-align: center;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+	border-radius: 15px 15px 15px 0px;
+}
+
+.badge-container .fas{
+    font-size: 55px;
+    margin-top: 18px;
+}
+
+.badge-container .far{
+    font-size    : 55px;
+    /* margin-top: 20px; */
+    padding-top: 20px;
+}
+
+.new-clients{
+	background: #1abc9c;
+}
+.emails-sent{
+background: #0abde3;
+}
+.outstanding-clients{
+background: #ee5253;
+}
+.hottest-country{
+background: #feca57;
+}

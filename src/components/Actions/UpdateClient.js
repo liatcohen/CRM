@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import ClientInput from './ClientInput'
-import { conditionalExpression } from '@babel/types';
-const axios = require('axios');
+import axios from 'axios';
 
 function UpdateClient(props) {
     const [client, setClient] = useState('')

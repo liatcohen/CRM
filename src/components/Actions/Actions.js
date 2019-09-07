@@ -3,8 +3,9 @@ import AddClient from './AddClient'
 import UpdateClient from './UpdateClient'
 import { PromiseProvider } from 'mongoose';
 import './Actions.css'
-const moment = require('moment');
-const axios = require('axios');
+import moment from 'moment';
+// const moment = require('moment');
+import axios from 'axios';
 
 function Actions(props) {
 
