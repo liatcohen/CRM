@@ -146,4 +146,13 @@ flex:1
       margin-top:7px;
       font-size: 1.1em;
 font-weight: 600;
-    }
+	}
+	
+
+	.form-style-5 input[type="button"]:disabled
+{
+	background: #85a69f;
+	cursor: auto;
+}
+
+	

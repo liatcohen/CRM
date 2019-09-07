@@ -7,6 +7,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const path = require('path')
 
+// mongoose.set('useFindAndModify', true);
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/crm', { useNewUrlParser: true })
 
@@ -18,10 +19,10 @@ app.use(function (req, res, next) {
     next()
 })
 
-app.use('/', api)
-app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
+app.use('/', api)
 app.listen(port, function () {
     console.log(`Running server on port ${port}`)
 })

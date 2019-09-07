@@ -34,10 +34,10 @@ function AddClient(props) {
     }
     return (
         <div className="add-clientr">
-            <div class="form-style-5">
+            <div className="form-style-5">
                 <form>
                     <fieldset>
-                        <legend><span class="number"></span>Add Client</legend>
+                        <legend><span className="number"></span>Add Client</legend>
                         <input type="text" id="name" placeholder="Name" value={name} onChange={handleChange} required/>
                         <input type="email" id="email" placeholder="Email" value={email} onChange={handleChange} required />
                         <input type="text" id="country" placeholder="Country" value={country} onChange={handleChange} required/>

@@ -9,14 +9,6 @@ function UpdateClient(props) {
     const [emailType, setEmailType] = useState('')
     const emails = ['A', 'B', 'C', 'D']
 
-    function submitSelectedClient(client) {
-
-    }
-
-    // useEffect(() => {
-    //     setOwners(props.owners)
-    // }, [])
-
     const UpdateClient = async (updatedValue, fieldToUpdate) => {
         console.log("UpdateClient")
         let clientKey = getClientKey(client)
@@ -35,7 +27,7 @@ function UpdateClient(props) {
 
     function sendEmail() {
         console.log("send email")
-        UpdateClient(emailType,"email")
+        UpdateClient(emailType,"emailType")
     }
 
     function declareSale() {
@@ -43,6 +35,8 @@ function UpdateClient(props) {
         UpdateClient(true,"sold")
 
     }
+
+    //TO DO: popup when action is done
     return (
         <div className="update-client">
             <div className="form-style-5">
