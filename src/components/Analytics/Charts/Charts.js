@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import './Charts.css'
 import SalesBarChart from './SalesBarChart'
+import TopEmployeesChart from './TopEmployeesChart'
 function Charts(props) {
 
 
@@ -19,11 +20,26 @@ function Charts(props) {
         }
         return data
     }
-    
+
+    function getTopEmployees() {
+        let employees = {}
+        for (let c of props.clients) {
+            if (c.sold) {
+                { employees[c.owner] ? employees[c.owner]++ : employees[c.owner] = 1 }
+            }
+        }
+        let data = []
+        for (let [key, value] of Object.entries(employees)) {
+            data.push({ employee: key, sales: value })
+            console.log(key, value);
+        }
+        return data
+    }
+
     return (
         <div className="charts">
-            Charts
           <SalesBarChart data={getSalesPerCountry()} />
+          <TopEmployeesChart data={getTopEmployees()}/>
         </div>
 
 

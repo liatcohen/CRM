@@ -1,3 +1,24 @@
 .charts{
-  margin-top: 20px;
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+/* margin-right: 10px; */
+/* font-size: 5px; */
+
 }
+
+#chart-headline{
+font-size: 15px;
+margin-bottom: 5px;
+}
+/* tspan{
+color: red;
+background-color: aqua;
+}
+
+.charts tspan{
+  font-size: 5px;
+  color: red;
+background-color: aqua;
+} */
+
