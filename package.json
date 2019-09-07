@@ -9,6 +9,7 @@
     "mongoose": "^5.6.9",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
+    "react-pagination-library": "^0.1.14",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.0",
     "recharts": "^1.7.1"

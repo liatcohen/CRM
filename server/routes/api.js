@@ -9,11 +9,30 @@ router.get('/', function (request, response) {
     response.send("check")
 })
 
-router.get('/clients', async function (req, res) {
+router.get('/clients/:currentPage?/:itemsInPages?', async function (req, res) {
+    // {currentPage: numPage, itemsInPages: 20}
     console.log("server get clients")
-    const clients = await Client.find({})
+    let clients = await Client.find({})
+    const totalNumberOfClients= clients.length;
+    const currentPage=req.params.currentPage
+    console.log(currentPage)
+
+    if (currentPage){
+        console.log("currentPage")
+
+        const itemsInPages= parseInt(req.params.itemsInPages)
+        const startItem = (currentPage-1)*itemsInPages
+        console.log(itemsInPages)
+        console.log(startItem)
+console.log(startItem+itemsInPages)
+        clients=clients.slice(startItem, startItem+itemsInPages)
+        res.send({clients, totalNumberOfClients })
+
+    }else{
+        res.send({clients})
+    }
     // console.log(clients)
-    res.send(clients)
+    // res.send(clients)
 })
 
 router.get('/clientsNames', async function (req, res) {
@@ -45,7 +64,7 @@ router.put('/client/:id', async function (req, res) {
     console.log("put client")
     const query = { _id: req.params.id };
     console.log("req.body")
-    console.log(req.body)
+    // console.log(req.body)
     // res.send({})
 
     const update = { "$set": { [req.body.fieldToUpdate]: req.body.value, } };

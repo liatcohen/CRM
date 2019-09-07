@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom
 import './App.css';
 import Analytics from './components/Analytics/Analytics'
 import Actions from './components/Actions/Actions'
-import Clients from './components/Cliens/Clients'
+import Clients from './components/Clients/Clients'
 import myData from './data.json';
 const axios = require('axios');
 
