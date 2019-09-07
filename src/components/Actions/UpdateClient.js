@@ -26,7 +26,6 @@ function UpdateClient(props) {
         await axios.put(`http://localhost:4000/client/${clientKey}`, { "value": updatedValue, "fieldToUpdate": fieldToUpdate })
     }
     const getClientKey = (clientName) => {
-
         return props.clients.find(c => c.name === clientName)._id
     }
     function transferOwnership() {
@@ -36,10 +35,13 @@ function UpdateClient(props) {
 
     function sendEmail() {
         console.log("send email")
+        UpdateClient(emailType,"email")
     }
 
     function declareSale() {
         console.log("declare sale")
+        UpdateClient(true,"sold")
+
     }
     return (
         <div className="update-client">
@@ -63,20 +65,20 @@ function UpdateClient(props) {
                                 {props.owners.map(ow =>
                                     <option key={ow._id} value={ow.owner}>{ow.owner}</option>)}
                             </select>
-                            <input type="button" value="Transfer" onClick={transferOwnership} />
+                            <input type="button" value="Transfer" onClick={transferOwnership} disabled={!client || !owner}/>
                         </div>
                         <div className="update-sub-div">
                             <label for="email-type">Send Email:</label>
-                            <select value={emailType} onChange={(e) => (setEmailType(e.target.value))}>
+                            <select value={emailType} onChange={(e) => (setEmailType(e.target.value))} >
                                 <option value="" selected disabled hidden></option>
                                 {emails.map(e =>
                                     <option key={e} value={e}>{e}</option>)}
                             </select>
-                            <input type="button" value="Send" onClick={sendEmail} />
+                            <input type="button" value="Send" onClick={sendEmail} disabled={!client || !emailType}/>
                         </div>
                         <div className="update-sub-div">
                             <label for="job">Declare Sale</label>
-                            <input type="button" value="Declare!" onClick={declareSale} />
+                            <input type="button" value="Declare!" onClick={declareSale} disabled={!client}/>
                         </div>
                     </fieldset>
                 </form>
