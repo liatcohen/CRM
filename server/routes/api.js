@@ -12,7 +12,7 @@ router.get('/', function (request, response) {
 router.get('/clients', async function (req, res) {
     console.log("server get clients")
     const clients = await Client.find({})
-    console.log(clients)
+    // console.log(clients)
     res.send(clients)
 })
 
@@ -42,12 +42,18 @@ router.post('/client', function (req, res) {
 })
 
 router.put('/client/:id', async function (req, res) {
-    const query = { "id": req.params.id };
-    const update = { "$set": { [req.body.fieldToUpdate]: req.body.value, } };
+    console.log("put client")
+    const query = { _id: req.params.id };
+    console.log("req.body")
+    console.log(req.body)
+    // res.send({})
 
+    const update = { "$set": { [req.body.fieldToUpdate]: req.body.value, } };
+    console.log(query)
+    console.log(update)
     Client.findOneAndUpdate(query, update)
-        .then(
-            res.send(client)
+        .then(c => 
+            res.send(c)
         ).catch(err => console.error(`Failed to find and update document: ${err}`))
 
 })
