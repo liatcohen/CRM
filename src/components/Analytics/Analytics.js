@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './Analytics.css'
 import Badges from './Badges/Badges';
+import Charts from './Charts/Charts'
 import axios from 'axios';
 
 const URL = "http://localhost:4000"
@@ -30,7 +31,10 @@ function Analytics() {
     <div className="analytics">
     {
       clients.length>0 ?
+      <div>
         <Badges clients={clients} />
+        <Charts clients={clients}/>
+        </div>
         : <div>loading</div>
     }
     </div>
