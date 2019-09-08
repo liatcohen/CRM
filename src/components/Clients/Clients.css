@@ -1,32 +1,17 @@
-#clients2 {
-  background-color: blue;
-}
-.clients{
-  /* margin-top: 160px; */
-}
-
-/* .bottom-border {
-background-color: aqua;
-padding: 5px;
-}
-
-.pagination{
-  background-color: aqua;
-padding: 5px;
-} */
-
 .pagination {
   padding: 0px 0 !important;
   margin-left: auto;
-
 }
 
 .clients-headers{
-/* background-color: aqua; */
 display: flex;
 }
 
 .clients-bottom{
   display: flex;
+}
 
+.bottom-border .is-active li{
+  font-weight: bold;
+  border-bottom: 3px solid  #1abc9c !important;
 }

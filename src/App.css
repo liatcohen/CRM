@@ -6,7 +6,7 @@ body{
   font-family: 'Montserrat', sans-serif;
 /* font-family: 'Cuprum', sans-serif; */
 
-margin-top: 60px;
+margin-top: 50px;
 }
 
 table {
@@ -29,7 +29,7 @@ thead{
 
 }
 .clients-table{
-  /* margin: 10px; */
+  margin: 1px;
 }
 
 .actions-header{

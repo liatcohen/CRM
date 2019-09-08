@@ -48,7 +48,8 @@ function Clients(props) {
                 currentPage={currentPage}
                 totalPages={numberOfPages}
                 changeCurrentPage={changeCurrentPage}
-                theme="bottom-border"/>
+                theme="bottom-border"
+                />
             </div>
            
             <table className="clients-table">
