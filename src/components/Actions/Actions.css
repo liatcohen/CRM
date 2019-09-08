@@ -104,7 +104,9 @@
 	border: 1px solid #16a085;
 	border-width: 1px 1px 3px;
     margin-bottom: 10px;
-    cursor: pointer;
+	cursor: pointer;
+	border-radius: 2px;
+
     
 }
 .form-style-5 input[type="submit"]:hover,
@@ -149,10 +151,16 @@ font-weight: 600;
 	}
 	
 
-	.form-style-5 input[type="button"]:disabled
-{
-	background: #85a69f;
+.form-style-5 input[type="button"]:disabled{
+	/* background: #72a398; */
 	cursor: auto;
+	opacity: 0.4;	
+}
+
+.form-style-5 input[type="button"]:disabled:hover{
+	background: #1abc9c;
+	cursor: auto;
+	opacity: 0.4;	
 }
 
 	
