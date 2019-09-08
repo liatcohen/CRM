@@ -5,6 +5,7 @@ import Analytics from './components/Analytics/Analytics'
 import Actions from './components/Actions/Actions'
 import Clients from './components/Clients/Clients'
 import myData from './data.json';
+import Navbar from './components/Navbar/Navbar';
 const axios = require('axios');
 
 function App() {
@@ -56,11 +57,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <div className="navbar">
-          <Link to="/clients">Clients</Link>
-          <Link to="/actions">Actions</Link>
-          <Link to="/analytics">Analytics</Link>
-        </div>
+        <Navbar/>
         <Route exact path="/" render={() => (<Redirect to="/clients" />)} />
         <Route path="/clients" exact render={() => <Clients />} />
         <Route path="/actions" exact render={() => <Actions clients={clients.map(c=>c.name)} addClient={addClient}/>} />
