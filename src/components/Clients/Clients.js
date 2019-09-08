@@ -43,7 +43,7 @@ function Clients(props) {
     return (
         <div className="clients">
             <div className="clients-headers">
-                <div>search</div>
+                <div></div>
             <Pagination
                 currentPage={currentPage}
                 totalPages={numberOfPages}
