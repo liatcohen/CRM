@@ -67,7 +67,7 @@ function Clients(props) {
                     {clients.map((c, key) => <Client client={c} key={key} editClient={editClient} />)}
                 </tbody>
             </table>
-            <div>
+            <div className="clients-bottom">
             <Pagination
                 currentPage={currentPage}
                 totalPages={numberOfPages}
