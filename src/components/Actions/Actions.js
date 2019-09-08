@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import AddClient from './AddClient'
 import UpdateClient from './UpdateClient'
-import { PromiseProvider } from 'mongoose';
 import './Actions.css'
 import moment from 'moment';
-// const moment = require('moment');
 import axios from 'axios';
 import ModalMsg from './Modal'
 
@@ -13,6 +11,7 @@ function Actions(props) {
     const [clientsNames, setClientsNames] = useState([])
     const [owners, setOwners] = useState([])
     const [modalVisible,setModalVisible] = useState(false)
+    const [modalMsg,setModalMsg] = useState('')
 
     const openModal=()=>setModalVisible(true)
     const closeModal=()=>setModalVisible(false)
@@ -53,15 +52,21 @@ function Actions(props) {
         client.firstContact = moment().format();
         client.sold = false
         client.emailType = null
-        props.addClient(client)
+        // props.addClient(client)
+        setModalMsg('Client added succecfuly!')
+        setModalVisible(true)
+    }
+
+    function clientUpdatedModal(modalMsg){
+        setModalMsg(modalMsg)
         setModalVisible(true)
     }
     return (
         <div className="actions">
             <AddClient addClient={addClient} />
             <hr/>
-            <UpdateClient clients={clientsNames} owners={owners} />
-            <ModalMsg visible={modalVisible} openModal={openModal} closeModal={closeModal}/>
+            <UpdateClient clients={clientsNames} owners={owners} clientUpdatedModal={clientUpdatedModal}/>
+            <ModalMsg visible={modalVisible} openModal={openModal} closeModal={closeModal} msg={modalMsg}/>
 
         </div>
     );

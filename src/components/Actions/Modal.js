@@ -14,7 +14,7 @@ function ModalMsg(props){
                     onClickAway={() => props.closeModal()}>
                     <div>
                         <h1>Title</h1>
-                        <p>Client added succecfuly!</p>
+                        <p>{props.msg}</p>
                         <a href="javascript:void(0);" onClick={() => props.closeModal()}>Close</a>
                     </div>
                 </Modal>

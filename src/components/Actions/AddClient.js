@@ -31,6 +31,10 @@ function AddClient(props) {
             country,
             owner
         })
+        setName('')
+        setEmail('')
+        setCountry('')
+        setOwner('')
     }
     return (
         <div className="add-clientr">

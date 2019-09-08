@@ -14,7 +14,9 @@ function UpdateClient(props) {
         console.log(updatedValue)
         console.log(fieldToUpdate)
         await axios.put(`http://localhost:4000/client/${clientKey}`, { "value": updatedValue, "fieldToUpdate": fieldToUpdate })
+        props.clientUpdatedModal(`${fieldToUpdate} updated succecfuly!`)
     }
+    
     const getClientKey = (clientName) => {
         return props.clients.find(c => c.name === clientName)._id
     }
