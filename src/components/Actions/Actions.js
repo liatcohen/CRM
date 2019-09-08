@@ -6,11 +6,16 @@ import './Actions.css'
 import moment from 'moment';
 // const moment = require('moment');
 import axios from 'axios';
+import ModalMsg from './Modal'
 
 function Actions(props) {
 
     const [clientsNames, setClientsNames] = useState([])
     const [owners, setOwners] = useState([])
+    const [modalVisible,setModalVisible] = useState(false)
+
+    const openModal=()=>setModalVisible(true)
+    const closeModal=()=>setModalVisible(false)
 
     useEffect(() => {
         getClientsNames()
@@ -49,12 +54,14 @@ function Actions(props) {
         client.sold = false
         client.emailType = null
         props.addClient(client)
+        setModalVisible(true)
     }
     return (
         <div className="actions">
             <AddClient addClient={addClient} />
             <hr/>
             <UpdateClient clients={clientsNames} owners={owners} />
+            <ModalMsg visible={modalVisible} openModal={openModal} closeModal={closeModal}/>
 
         </div>
     );

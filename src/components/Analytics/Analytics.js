@@ -18,8 +18,8 @@ function Analytics() {
     console.log("getClientsInfo!")
     axios.get(`${URL}/clients`)
       .then((response) => {
-        console.log(response.data)
-        setClients(response.data)
+        console.log(response.data.clients)
+        setClients(response.data.clients)
       })
       .catch(function (error) {
         console.log("ERROR: ")

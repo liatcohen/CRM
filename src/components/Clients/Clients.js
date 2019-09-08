@@ -21,7 +21,7 @@ function Clients(props) {
         console.log(numPage)
         axios.get(`${URL}/clients/${numPage}/${20}`)
             .then((response) => {
-                setNumberOfPages(parseInt(response.data.totalNumberOfClients/20)) 
+                setNumberOfPages(Math.ceil(response.data.totalNumberOfClients/20)) 
                 console.log(response.data.clients)
                 setClients(response.data.clients)
                 
@@ -31,7 +31,7 @@ function Clients(props) {
                 console.log(error);
             });
     }
-
+    
     function editClient(client) {
         console.log(`${client.name} was clicked`)
     }
@@ -42,11 +42,15 @@ function Clients(props) {
 
     return (
         <div className="clients">
+            <div className="clients-headers">
+                <div>search</div>
             <Pagination
                 currentPage={currentPage}
                 totalPages={numberOfPages}
                 changeCurrentPage={changeCurrentPage}
                 theme="bottom-border"/>
+            </div>
+           
             <table className="clients-table">
                 <thead>
                     <tr>
@@ -63,6 +67,14 @@ function Clients(props) {
                     {clients.map((c, key) => <Client client={c} key={key} editClient={editClient} />)}
                 </tbody>
             </table>
+            <div>
+            <Pagination
+                currentPage={currentPage}
+                totalPages={numberOfPages}
+                changeCurrentPage={changeCurrentPage}
+                theme="bottom-border"/>
+            </div>
+           
         </div>
     );
 }

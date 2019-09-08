@@ -14,3 +14,14 @@ padding: 5px;
   background-color: aqua;
 padding: 5px;
 } */
+
+.pagination {
+  padding: 0px 0 !important;
+  margin-left: auto;
+
+}
+
+.clients-headers{
+/* background-color: aqua; */
+display: flex;
+}

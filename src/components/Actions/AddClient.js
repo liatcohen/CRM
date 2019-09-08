@@ -43,7 +43,7 @@ function AddClient(props) {
                         <input type="text" id="country" placeholder="Country" value={country} onChange={handleChange} required/>
                         <input type="text" id="owner" placeholder="Owner" value={owner} onChange={handleChange} required/>
                     </fieldset>
-                    <input type="submit" value="Add New Client" onClick={addClient}/>
+                    <input type="button" value="Add New Client" onClick={addClient}/>
                 </form>
             </div>
         </div>
