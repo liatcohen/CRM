@@ -12,22 +12,6 @@ function App() {
 
   const [clients, setClients] = useState([])
 
-  // useEffect(() => {
-  //   getClientsInfo()
-  // },[]);
-  
-  // function getClientsInfo() {
-  //   console.log("client getClients")
-
-  //   axios.get('http://localhost:4000/clients')
-  //     .then((response) => {
-  //       setClients(response.data)
-  //     })
-  //     .catch(function (error) {
-  //       console.log("ERROR: ")
-  //       console.log(error);
-  //     });
-  // }
   function getClientsNames() {
     console.log("client getClients")
 
@@ -41,26 +25,13 @@ function App() {
       });
   }
 
-  function addClient(client) {
-    console.log("addClient")
-    console.log(client)
-    axios.post('http://localhost:4000/client', client)
-      .then((response) => {
-        // getClients()
-      })
-      .catch(function (error) {
-        console.log("ERROR: ")
-        console.log(error);
-      });
-  }
-
   return (
     <Router>
       <div className="App">
-        <Navbar/>
+        <Navbar />
         <Route exact path="/" render={() => (<Redirect to="/clients" />)} />
         <Route path="/clients" exact render={() => <Clients />} />
-        <Route path="/actions" exact render={() => <Actions clients={clients.map(c=>c.name)} addClient={addClient}/>} />
+        <Route path="/actions" exact render={() => <Actions />} />
         <Route path="/analytics" exact render={() => <Analytics />} />
 
       </div>

@@ -3,14 +3,10 @@ const app = express()
 const api = require('./server/routes/api')
 const port = 4000
 const mongoose = require('mongoose')
-// const Client = require('./server/models/Client') //?
 const bodyParser = require('body-parser')
 const path = require('path')
 
-// mongoose.set('useFindAndModify', true);
-
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/crm', { useNewUrlParser: true })
-
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')

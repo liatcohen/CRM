@@ -10,12 +10,16 @@ router.get('/', function (request, response) {
 })
 router.get('/clients/:currentPage?', async function (req, res) {
     console.log("get clients" )
-    console.log(req.query)
+    // console.log(req.query)
 
     let searchCategory=req.query.searchCategory||'name'
     let searchQuery= req.query.searchQuery ||''
     searchCategory=searchCategory.toLowerCase()
-    let clients = await Client.find({[searchCategory] : {$regex : `.*${searchQuery}.*`, '$options' : 'i'}})
+    let sortBy=req.query.sortBy ||'name'
+    let sortOrder=req.query.sortOrder||'1'
+    console.log(`sortBy: ${sortBy}, sortOreder: ${sortOrder}`)
+    sortBy=sortBy.toLowerCase()
+    let clients = await Client.find({[searchCategory] : {$regex : `.*${searchQuery}.*`, '$options' : 'i'}}).sort( { [sortBy]: sortOrder } )
     const totalNumberOfClients = clients.length;
     const currentPage = req.params.currentPage
     if (currentPage) {
@@ -23,7 +27,7 @@ router.get('/clients/:currentPage?', async function (req, res) {
         console.log(itemsInPages)
         const startItem = (currentPage - 1) * itemsInPages
         clients = clients.slice(startItem, startItem + itemsInPages)
-        // console.log(clients)
+        console.log(clients.length)
         res.send({ clients, totalNumberOfClients })
     } else {
         res.send({ clients })

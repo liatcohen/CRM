@@ -1,8 +1,5 @@
 .badges{
-    margin-top: 15px;
+    margin-top: 70px;
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-evenly;
-    /* flex-start | flex-end | center | space-between | space-around | space-evenly | start | end | left | right ... + safe | unsafe; */
-
 }

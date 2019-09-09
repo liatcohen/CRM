@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Client from './Client'
 import './Clients.css'
+import ClientSearch from './ClientSearch'
 import axios from 'axios';
 import Pagination from "react-pagination-library";
-import "react-pagination-library/build/css/index.css"; //for css
+import "react-pagination-library/build/css/index.css";
+import TableHead from './TableHead';
 
 const URL = "http://localhost:4000"
 
@@ -11,71 +13,105 @@ function Clients(props) {
     const [clients, setClients] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [numberOfPages, setNumberOfPages] = useState()
+    const [searchCategory, setSearchCategory] = useState('Name')
+    const [searchQuery, setSearchQuery] = useState('')
+    const [sortOrder, setSortOrder] = useState(1)
+    const [sortBy, setSortBy] = useState('name')
 
+    // const [sort] = useState({})
+    const itemsInPages = 20
+    const tableHeads = ["Name", "Email", "Country", "First Contact", "Email Type", "Sold", "Owner"]
     useEffect(() => {
         getClientsInfo(currentPage)
-    },[currentPage]);
+    }, [currentPage]);
+
+    useEffect(() => {
+        getClientsInfo(1)
+    }, [searchQuery, searchCategory]);
+
+    useEffect(() => {
+        getClientsInfo(1)
+    }, [sortOrder])
 
     function getClientsInfo(numPage) {
-        console.log("client getClients!")
-        console.log(numPage)
-        axios.get(`${URL}/clients/${numPage}/${20}`)
+        const search = getSearchQuery()
+        console.log(`sortBy=${sortBy} sortOrder=${sortOrder}`)
+        axios.get(`${URL}/clients/${numPage}?itemsInPages=${itemsInPages}&sortBy=${sortBy}&sortOrder=${sortOrder}${search}`)
             .then((response) => {
-                setNumberOfPages(Math.ceil(response.data.totalNumberOfClients/20)) 
-                console.log(response.data.clients)
+                setNumberOfPages(Math.ceil(response.data.totalNumberOfClients / itemsInPages))
                 setClients(response.data.clients)
-                
             })
             .catch(function (error) {
                 console.log("ERROR: ")
                 console.log(error);
             });
     }
-    
+
+    function getSearchQuery() {
+        if (searchQuery) {
+            return `&searchCategory=${searchCategory}&searchQuery=${searchQuery}`
+        }
+        return ''
+    }
     function editClient(client) {
         console.log(`${client.name} was clicked`)
     }
 
-    async function changeCurrentPage(numPage){
+    async function changeCurrentPage(numPage) {
         setCurrentPage(numPage)
-    } 
+    }
 
+    function handleSearchCategory(category) {
+        console.log(category)
+        setSearchCategory(category)
+    }
+    function handleSearchQuery(query) {
+        console.log("handleSearchQuery: " + searchQuery)
+        setSearchQuery(query)
+    }
+    function sortClicked(sortBy, sortOrder) {
+        console.log("sortClicked")
+        setSortBy(sortBy)
+        setSortOrder(sortOrder)
+    }
+   
     return (
         <div className="clients">
             <div className="clients-headers">
-                <div></div>
-            <Pagination
-                currentPage={currentPage}
-                totalPages={numberOfPages}
-                changeCurrentPage={changeCurrentPage}
-                theme="bottom-border"
-                />
+                <ClientSearch searchCategory={searchCategory} searchQuery={searchQuery} handleSearchCategory={handleSearchCategory} handleSearchQuery={handleSearchQuery} />
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={numberOfPages}
+                    changeCurrentPage={changeCurrentPage}
+                    theme="bottom-border" />
             </div>
-           
             <table className="clients-table">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Country</th>
-                        <th>First Contact</th>
+                        {tableHeads.map(h => <TableHead headline={h} sortClicked={sortClicked} sortBy={sortBy} sortOrder={sortOrder} />)}
+                        {/* <th name="a" onClick={(e) => handleSort}>Name {sortOrder ? "1up" : "-1down"}</th>
+                        <th>Email </th>
+                        <th>Country </th>
+                        <th>First Contact </th>
                         <th>Email Type</th>
-                        <th>Sold</th>
-                        <th>Owner</th>
+                        <th>Sold </th>
+                        <th>Owner</th> */}
                     </tr>
                 </thead>
-                <tbody>
-                    {clients.map((c, key) => <Client client={c} key={key} editClient={editClient} />)}
-                </tbody>
+                {clients.length > 0 ?
+                    <tbody>
+                        {clients.map((c, key) => <Client client={c} key={key} editClient={editClient} />)}
+                    </tbody>
+                    : <div>No clients found</div>}
             </table>
             <div className="clients-bottom">
-            <Pagination
-                currentPage={currentPage}
-                totalPages={numberOfPages}
-                changeCurrentPage={changeCurrentPage}
-                theme="bottom-border"/>
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={numberOfPages}
+                    changeCurrentPage={changeCurrentPage}
+                    theme="bottom-border" />
             </div>
-           
+
         </div>
     );
 }
