@@ -8,7 +8,6 @@ function Client(props) {
     function editClient() {
         props.editClient(props.client)
         console.log("Client: "+props.client.name)
-        console.log(props.client.sold)
     }
 
     return (

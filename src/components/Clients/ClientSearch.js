@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 function ClientSearch(props) {
-    const searchOptions = ["Name", "Email", "Owner", "Country", "Sold"]
+    const searchOptions = ["Name", "Email", "Owner", "Country"]
 
     const handleSearchQuery = (e) => props.handleSearchQuery(e.target.value)
 

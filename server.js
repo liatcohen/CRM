@@ -8,6 +8,8 @@ const path = require('path')
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/crm', { useNewUrlParser: true })
 
+app.use(express.static(path.join(__dirname, 'build')));
+
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
@@ -19,6 +21,11 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', api)
+
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 app.listen(port, function () {
     console.log(`Running server on port ${port}`)
 })

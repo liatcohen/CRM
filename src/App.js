@@ -6,7 +6,8 @@ import Actions from './components/Actions/Actions'
 import Clients from './components/Clients/Clients'
 import myData from './data.json';
 import Navbar from './components/Navbar/Navbar';
-const axios = require('axios');
+import axios from 'axios'
+const url = `http://localhost:4000`
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
   function getClientsNames() {
     console.log("client getClients")
 
-    axios.get('http://localhost:4000/clients')
+    axios.get(`${url}/clients`)
       .then((response) => {
         setClients(response.data)
       })

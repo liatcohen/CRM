@@ -5,8 +5,6 @@ function TableHead(props) {
     const sortClicked = () => {
         let sortOrder = -1
         if (props.sortOrder === -1) {
-            // if (sign === '-1' || sign === '') {
-
             sortOrder = 1
         }
         props.sortClicked(props.headline, sortOrder)
@@ -16,8 +14,7 @@ function TableHead(props) {
         <th onClick={sortClicked}>{props.headline}
             {
                 props.sortBy.toLowerCase() === props.headline.toLowerCase() ?
-                    props.sortOrder === 1 ? <i class="fas fa-chevron-up sort-sign"></i>:<i class="fas fa-chevron-down sort-sign"></i>
-                    // "1up" : "-1down"
+                    props.sortOrder === 1 ? <i class="fas fa-chevron-up sort-sign"></i> : <i class="fas fa-chevron-down sort-sign"></i>
                     : '  '
             }
         </th>
@@ -25,5 +22,3 @@ function TableHead(props) {
 }
 
 export default TableHead;
- // <i class="fas fa-chevron-up"></i>
-    // <i class="fas fa-chevron-down"></i>

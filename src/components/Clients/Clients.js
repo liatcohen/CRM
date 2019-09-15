@@ -6,8 +6,7 @@ import axios from 'axios';
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
 import TableHead from './TableHead';
-
-const URL = "http://localhost:4000"
+const url = `http://localhost:4000`
 
 function Clients(props) {
     const [clients, setClients] = useState([])
@@ -35,8 +34,7 @@ function Clients(props) {
 
     function getClientsInfo(numPage) {
         const search = getSearchQuery()
-        console.log(`sortBy=${sortBy} sortOrder=${sortOrder}`)
-        axios.get(`${URL}/clients/${numPage}?itemsInPages=${itemsInPages}&sortBy=${sortBy}&sortOrder=${sortOrder}${search}`)
+        axios.get(`${url}/clients/${numPage}?itemsInPages=${itemsInPages}&sortBy=${sortBy}&sortOrder=${sortOrder}${search}`)
             .then((response) => {
                 setNumberOfPages(Math.ceil(response.data.totalNumberOfClients / itemsInPages))
                 setClients(response.data.clients)
@@ -62,15 +60,12 @@ function Clients(props) {
     }
 
     function handleSearchCategory(category) {
-        console.log(category)
         setSearchCategory(category)
     }
     function handleSearchQuery(query) {
-        console.log("handleSearchQuery: " + searchQuery)
         setSearchQuery(query)
     }
     function sortClicked(sortBy, sortOrder) {
-        console.log("sortClicked")
         setSortBy(sortBy)
         setSortOrder(sortOrder)
     }

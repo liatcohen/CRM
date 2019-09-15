@@ -10,34 +10,25 @@ router.get('/', function (request, response) {
 })
 router.get('/clients/:currentPage?', async function (req, res) {
     console.log("get clients" )
-    // console.log(req.query)
-
     let searchCategory=req.query.searchCategory||'name'
     let searchQuery= req.query.searchQuery ||''
     searchCategory=searchCategory.toLowerCase()
     let sortBy=req.query.sortBy ||'name'
     let sortOrder=req.query.sortOrder||'1'
-    console.log(`sortBy: ${sortBy}, sortOreder: ${sortOrder}`)
     sortBy=sortBy.toLowerCase()
     let clients = await Client.find({[searchCategory] : {$regex : `.*${searchQuery}.*`, '$options' : 'i'}}).sort( { [sortBy]: sortOrder } )
     const totalNumberOfClients = clients.length;
     const currentPage = req.params.currentPage
     if (currentPage) {
         const itemsInPages = parseInt(req.query.itemsInPages ||20)
-        console.log(itemsInPages)
         const startItem = (currentPage - 1) * itemsInPages
         clients = clients.slice(startItem, startItem + itemsInPages)
-        console.log(clients.length)
         res.send({ clients, totalNumberOfClients })
     } else {
         res.send({ clients })
     }
 })
 
-getSearchQuery=(query)=>{
-   let searchCategory=query.searchCategory
-   let searchQuery= query.searchQuery 
-}
 router.get('/clientsNames', async function (req, res) {
     const clients = await Client.find({}, { name: 1 })
     res.send(clients)
@@ -63,8 +54,6 @@ router.post('/client', function (req, res) {
 router.put('/client/:id', async function (req, res) {
     const query = { _id: req.params.id };
     const update = { "$set": { [req.body.fieldToUpdate]: req.body.value, } };
-    console.log(query)
-    console.log(update)
     Client.findOneAndUpdate(query, update)
         .then(c =>
             res.send(c)

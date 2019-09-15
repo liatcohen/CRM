@@ -5,7 +5,7 @@ import './Actions.css'
 import moment from 'moment';
 import axios from 'axios';
 import ModalMsg from './Modal'
-import { arrayExpression } from '@babel/types';
+const url = `http://localhost:4000`
 
 function Actions() {
 
@@ -25,7 +25,7 @@ function Actions() {
     function getClientsNames() {
         console.log("client getClients")
 
-        axios.get('http://localhost:4000/clientsNames')
+        axios.get(`${url}clientsNames`)
             .then((response) => {
                 setClientsNames(response.data)
             })
@@ -38,12 +38,9 @@ function Actions() {
     function getOwners() {
         console.log("getOwners")
 
-        axios.get('http://localhost:4000/owners')
+        axios.get(`${url}/owners`)
             .then((response) => {
-                // const set1 = new Set([1, 2, 3, 4, 5]);
-                // uniq = [...new Set(array)];
                 let uniqOwnersArr=[]
-                // const result = words.filter(word => word.length > 6);
                 let uniqOwnersObj ={}
                 let count=0
                 for (let ow of response.data){
@@ -74,9 +71,8 @@ function Actions() {
         client.firstContact = moment().format();
         client.sold = false
         client.emailType = null
-        axios.post('http://localhost:4000/client', client)
+        axios.post(`${url}/client`, client)
             .then((response) => {
-                console.log("Client added succecfuly!")
                 setModalMsg('Client added succecfuly!')
                 setModalVisible(true)
             })

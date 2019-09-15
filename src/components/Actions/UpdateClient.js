@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+const url = `http://localhost:4000`
 
 function UpdateClient(props) {
     const [client, setClient] = useState('')
@@ -8,35 +9,26 @@ function UpdateClient(props) {
     const emails = ['A', 'B', 'C', 'D']
 
     const UpdateClient = async (updatedValue, fieldToUpdate) => {
-        console.log("UpdateClient")
         let clientKey = getClientKey(client)
-        console.log(clientKey)
-        console.log(updatedValue)
-        console.log(fieldToUpdate)
-        await axios.put(`http://localhost:4000/client/${clientKey}`, { "value": updatedValue, "fieldToUpdate": fieldToUpdate })
+        await axios.put(`${url}/client/${clientKey}`, { "value": updatedValue, "fieldToUpdate": fieldToUpdate })
         props.clientUpdatedModal(`${fieldToUpdate} updated succecfuly!`)
     }
-    
+
     const getClientKey = (clientName) => {
         return props.clients.find(c => c.name === clientName)._id
     }
     function transferOwnership() {
-        console.log("transferOwnership")
         UpdateClient(owner, 'owner')
     }
 
     function sendEmail() {
-        console.log("send email")
         UpdateClient(emailType,"emailType")
     }
 
     function declareSale() {
-        console.log("declare sale")
         UpdateClient(true,"sold")
-
     }
 
-    //TO DO: popup when action is done
     return (
         <div className="update-client">
             <div className="form-style-5">

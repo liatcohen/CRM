@@ -3,8 +3,7 @@ import './Analytics.css'
 import Badges from './Badges/Badges';
 import Charts from './Charts/Charts'
 import axios from 'axios';
-
-const URL = "http://localhost:4000"
+const url = "http://localhost:4000"
 
 function Analytics() {
 
@@ -16,7 +15,7 @@ function Analytics() {
 
   function getClientsInfo() {
     console.log("getClientsInfo!")
-    axios.get(`${URL}/clients`)
+    axios.get(`${url}/clients`)
       .then((response) => {
         console.log(response.data.clients)
         setClients(response.data.clients)
