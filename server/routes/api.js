@@ -4,6 +4,17 @@ const moment = require('moment')
 const axios = require('axios')
 const mongoose = require('mongoose')
 const Client = require('../models/Client')
+const data = require('../../src/data.json')
+
+// post json in DB
+    const uploadData = function(){
+        for(let c of data){
+            let client = new Client(c)
+            client.save()
+        }
+    }
+    
+    uploadData()
 
 router.get('/', function (request, response) {
     response.send("check")

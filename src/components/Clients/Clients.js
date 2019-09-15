@@ -84,13 +84,6 @@ function Clients(props) {
                 <thead>
                     <tr>
                         {tableHeads.map(h => <TableHead headline={h} sortClicked={sortClicked} sortBy={sortBy} sortOrder={sortOrder} />)}
-                        {/* <th name="a" onClick={(e) => handleSort}>Name {sortOrder ? "1up" : "-1down"}</th>
-                        <th>Email </th>
-                        <th>Country </th>
-                        <th>First Contact </th>
-                        <th>Email Type</th>
-                        <th>Sold </th>
-                        <th>Owner</th> */}
                     </tr>
                 </thead>
                 {clients.length > 0 ?
