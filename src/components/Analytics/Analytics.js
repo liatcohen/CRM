@@ -3,8 +3,8 @@ import './Analytics.css'
 import Badges from './Badges/Badges';
 import Charts from './Charts/Charts'
 import axios from 'axios';
-const url = "http://localhost:4000"
-// const url=""
+// const url = "http://localhost:4000"
+const url=""
 
 function Analytics() {
 

@@ -51,7 +51,7 @@ function App() {
         <Route path="/clients" exact render={() => <Clients />} />
         <Route path="/actions" exact render={() => <Actions />} />
         <Route path="/analytics" exact render={() => <Analytics />} />
-        <button onClick={addDB}>add db</button>
+        {/* <button onClick={addDB}>add db</button> */}
 
       </div>
     </Router>
