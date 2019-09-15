@@ -7,8 +7,8 @@ import Clients from './components/Clients/Clients'
 import myData from './data.json';
 import Navbar from './components/Navbar/Navbar';
 import axios from 'axios'
-const url = `http://localhost:4000`
-url=""
+// const url = `http://localhost:4000`
+const url=""
 
 function App() {
 

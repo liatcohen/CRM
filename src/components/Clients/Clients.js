@@ -6,8 +6,8 @@ import axios from 'axios';
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
 import TableHead from './TableHead';
-const url = `http://localhost:4000`
-url=""
+// const url = `http://localhost:4000`
+const url=""
 
 function Clients(props) {
     const [clients, setClients] = useState([])
