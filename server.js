@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const api = require('./server/routes/api')
-const port = 4000
+const port = process.env.PORT || 4000
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const path = require('path')
