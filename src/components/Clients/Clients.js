@@ -69,7 +69,7 @@ function Clients(props) {
         setSortBy(sortBy)
         setSortOrder(sortOrder)
     }
-   
+  
     return (
         <div className="clients">
             <div className="clients-headers">
