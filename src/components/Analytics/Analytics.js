@@ -4,6 +4,7 @@ import Badges from './Badges/Badges';
 import Charts from './Charts/Charts'
 import axios from 'axios';
 const url = "http://localhost:4000"
+url=""
 
 function Analytics() {
 

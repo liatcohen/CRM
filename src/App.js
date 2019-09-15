@@ -8,6 +8,7 @@ import myData from './data.json';
 import Navbar from './components/Navbar/Navbar';
 import axios from 'axios'
 const url = `http://localhost:4000`
+url=""
 
 function App() {
 

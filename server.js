@@ -9,6 +9,7 @@ const path = require('path')
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/crm', { useNewUrlParser: true })
 
 app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'node_modules')))
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*')
