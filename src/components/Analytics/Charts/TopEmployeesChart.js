@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-    ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
-    Legend,
-} from 'recharts';
+import { ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, } from 'recharts';
 
 function TopEmployeesChart(props) {
 
@@ -19,7 +16,7 @@ function TopEmployeesChart(props) {
                 }}>
                 <CartesianGrid stroke="#f5f5f5" />
                 <XAxis type="number" />
-                <YAxis dataKey="employee" type="category" className="employee"/>
+                <YAxis dataKey="employee" type="category" className="employee" />
                 <Tooltip />
                 <Legend />
                 <Bar dataKey="sales" barSize={15} fill="#413ea0" />

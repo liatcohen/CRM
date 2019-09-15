@@ -1,10 +1,10 @@
 
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './Charts.css'
 import SalesBarChart from './SalesBarChart'
 import TopEmployeesChart from './TopEmployeesChart'
-function Charts(props) {
 
+function Charts(props) {
 
     function getSalesPerCountry() {
         let sales = {}
@@ -41,11 +41,7 @@ function Charts(props) {
           <SalesBarChart data={getSalesPerCountry()} />
           <TopEmployeesChart data={getTopEmployees()}/>
         </div>
-
-
     );
-
-
 }
 
 export default Charts;

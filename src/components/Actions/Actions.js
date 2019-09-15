@@ -5,8 +5,8 @@ import './Actions.css'
 import moment from 'moment';
 import axios from 'axios';
 import ModalMsg from './Modal'
-// const url = `http://localhost:4000`
-const url=""
+const url = `http://localhost:4000`
+// const url=""
 
 function Actions() {
 
@@ -24,8 +24,6 @@ function Actions() {
     }, []);
 
     function getClientsNames() {
-        console.log("client getClients")
-
         axios.get(`${url}clientsNames`)
             .then((response) => {
                 setClientsNames(response.data)
@@ -37,8 +35,6 @@ function Actions() {
     }
 
     function getOwners() {
-        console.log("getOwners")
-
         axios.get(`${url}/owners`)
             .then((response) => {
                 let uniqOwnersArr=[]

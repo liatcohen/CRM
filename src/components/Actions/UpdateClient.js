@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 // const url = `http://localhost:4000`
-const url=""
+const url = ""
 
 function UpdateClient(props) {
     const [client, setClient] = useState('')
@@ -15,20 +15,14 @@ function UpdateClient(props) {
         props.clientUpdatedModal(`${fieldToUpdate} updated succecfuly!`)
     }
 
-    const getClientKey = (clientName) => {
-        return props.clients.find(c => c.name === clientName)._id
-    }
-    function transferOwnership() {
-        UpdateClient(owner, 'owner')
-    }
+    const getClientKey = (clientName) => props.clients.find(c => c.name === clientName)._id
 
-    function sendEmail() {
-        UpdateClient(emailType,"emailType")
-    }
+    const transferOwnership = () => UpdateClient(owner, 'owner')
 
-    function declareSale() {
-        UpdateClient(true,"sold")
-    }
+    const sendEmail = () => UpdateClient(emailType, "emailType")
+
+    const declareSale = () => UpdateClient(true, "sold")
+
 
     return (
         <div className="update-client">
@@ -52,7 +46,7 @@ function UpdateClient(props) {
                                 {props.owners.map(ow =>
                                     <option key={ow._id} value={ow.owner}>{ow.owner}</option>)}
                             </select>
-                            <input type="button" value="Transfer" onClick={transferOwnership} disabled={!client || !owner}/>
+                            <input type="button" value="Transfer" onClick={transferOwnership} disabled={!client || !owner} />
                         </div>
                         <div className="update-sub-div">
                             <label for="email-type">Send Email:</label>
@@ -61,11 +55,11 @@ function UpdateClient(props) {
                                 {emails.map(e =>
                                     <option key={e} value={e}>{e}</option>)}
                             </select>
-                            <input type="button" value="Send" onClick={sendEmail} disabled={!client || !emailType}/>
+                            <input type="button" value="Send" onClick={sendEmail} disabled={!client || !emailType} />
                         </div>
                         <div className="update-sub-div">
                             <label for="job">Declare Sale</label>
-                            <input type="button" value="Declare!" onClick={declareSale} disabled={!client}/>
+                            <input type="button" value="Declare!" onClick={declareSale} disabled={!client} />
                         </div>
                     </fieldset>
                 </form>

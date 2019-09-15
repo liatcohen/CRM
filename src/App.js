@@ -7,42 +7,11 @@ import Clients from './components/Clients/Clients'
 import myData from './data.json';
 import Navbar from './components/Navbar/Navbar';
 import axios from 'axios'
-// const url = `http://localhost:4000`
-const url=""
+const url = `http://localhost:4000`
+// const url=""
 
 function App() {
 
-  const [clients, setClients] = useState([])
-
-  function getClientsNames() {
-    console.log("client getClients")
-
-    axios.get(`${url}/clients`)
-      .then((response) => {
-        setClients(response.data)
-      })
-      .catch(function (error) {
-        console.log("ERROR: ")
-        console.log(error);
-      });
-  }
-
-  function addDB() {
-    console.log("add db")
-    for (let c of myData){
-      console.log(c)
-
-      axios.post(`${url}/db`, c)
-      .then((response) => {
-        console.log("then")
-      })
-      .catch(function (error) {
-        console.log("ERROR: ")
-        console.log(error);
-      });
-    }
-    
-  }
   return (
     <Router>
       <div className="App">
@@ -51,8 +20,6 @@ function App() {
         <Route path="/clients" exact render={() => <Clients />} />
         <Route path="/actions" exact render={() => <Actions />} />
         <Route path="/analytics" exact render={() => <Analytics />} />
-        {/* <button onClick={addDB}>add db</button> */}
-
       </div>
     </Router>
   );

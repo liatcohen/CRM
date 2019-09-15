@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 function AddClient(props) {
 
@@ -25,29 +25,32 @@ function AddClient(props) {
     }
 
     function addClient() {
-        props.addClient({
-            name,
-            email,
-            country,
-            owner
-        })
-        setName('')
-        setEmail('')
-        setCountry('')
-        setOwner('')
+        if (name && email && country && owner) {
+            props.addClient({
+                name,
+                email,
+                country,
+                owner
+            })
+            setName('')
+            setEmail('')
+            setCountry('')
+            setOwner('')
+        }
     }
+    
     return (
         <div className="add-clientr">
             <div className="form-style-5">
                 <form>
                     <fieldset>
                         <legend><span className="number"></span>Add Client</legend>
-                        <input type="text" id="name" placeholder="Name" value={name} onChange={handleChange} required/>
+                        <input type="text" id="name" placeholder="Name" value={name} onChange={handleChange} required />
                         <input type="email" id="email" placeholder="Email" value={email} onChange={handleChange} required />
-                        <input type="text" id="country" placeholder="Country" value={country} onChange={handleChange} required/>
-                        <input type="text" id="owner" placeholder="Owner" value={owner} onChange={handleChange} required/>
+                        <input type="text" id="country" placeholder="Country" value={country} onChange={handleChange} required />
+                        <input type="text" id="owner" placeholder="Owner" value={owner} onChange={handleChange} required />
                     </fieldset>
-                    <input type="button" value="Add New Client" onClick={addClient}/>
+                    <input type="submit" value="Add New Client" onClick={addClient} />
                 </form>
             </div>
         </div>

@@ -6,8 +6,8 @@ import axios from 'axios';
 import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
 import TableHead from './TableHead';
-// const url = `http://localhost:4000`
-const url=""
+const url = `http://localhost:4000`
+// const url=""
 
 function Clients(props) {
     const [clients, setClients] = useState([])
@@ -17,10 +17,9 @@ function Clients(props) {
     const [searchQuery, setSearchQuery] = useState('')
     const [sortOrder, setSortOrder] = useState(1)
     const [sortBy, setSortBy] = useState('name')
-
-    // const [sort] = useState({})
     const itemsInPages = 20
     const tableHeads = ["Name", "Email", "Country", "First Contact", "Email Type", "Sold", "Owner"]
+    
     useEffect(() => {
         getClientsInfo(currentPage)
     }, [currentPage]);
@@ -70,7 +69,7 @@ function Clients(props) {
         setSortBy(sortBy)
         setSortOrder(sortOrder)
     }
-  
+
     return (
         <div className="clients">
             <div className="clients-headers">
